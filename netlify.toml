@@ -1,0 +1,38 @@
+[dev]
+  command = "npm run vite:start"
+  publish = "dist"
+  port = 8080 
+
+[build]
+  command = "npm run vite:build"
+  publish = "dist"
+
+[functions]
+  node_bundler = "esbuild"
+  included_files = ["netlify/data/*.json"]
+  
+[[redirects]]
+  from = "/api/books"
+  to = "/.netlify/functions/books"
+  status = 200
+
+[[redirects]]
+  from = "/api/sales"
+  to = "/.netlify/functions/sales"
+  status = 200
+
+[[redirects]]
+  from = "/api/login"
+  to = "/.netlify/functions/login"
+  status = 200
+
+[[redirects]]
+  from = "/api/register"
+  to = "/.netlify/functions/register"
+  status = 200
+
+[[redirects]]
+  from = "/api/check-user"
+  to = "/.netlify/functions/check-user"
+  status = 200
+
